@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Traffic light</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(to right, #333333, #dd1818);
+        }
+
+      #semafor {
+        background: #202020;
+        border: 2px solid grey;
+        border-radius: 20px;
+        width: 150px;
+        height: 350px;
+        margin: auto;
+        margin-top: 200px;
+      }
+
+      .boje {
+        border: 1px solid grey;
+        border-radius: 100px;
+        width: 100px;
+        height: 100px;
+        margin-top: 7px;
+        margin-left: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="semafor">
+      <div class="boje"></div>
+      <div class="boje"></div>
+      <div class="boje"></div>
+    </div>
+
+    <script>
+      function semafor() {
+        var boje = document.getElementsByClassName("boje");
+        boje[0].style.background = "red";
+        boje[1].style.background = "gray";
+        boje[2].style.background = "gray";
+
+        function changeToYellow() {
+          boje[1].style.background = "yellow";
+        }
+        function changeToGreen() {
+          boje[0].style.background = "gray";
+          boje[1].style.background = "gray";
+          boje[2].style.background = "green";
+        }
+
+        var x = setTimeout(changeToYellow, 3000);
+        var y = setTimeout(changeToGreen, 5000);
+      }
+      var start = setInterval(semafor, 8000);
+      semafor();
+    </script>
+  </body>
+</html>
